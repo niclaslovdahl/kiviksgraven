@@ -11,60 +11,73 @@ using UnityEngine.SceneManagement;
 //
 //	3) Add this script to the controller, and modify it as necessary
 //
-[RequireComponent (typeof(SteamVR_TrackedController))]
-public class langController : MonoBehaviour
-{
+[RequireComponent(typeof(SteamVR_TrackedController))]
+public class langController : MonoBehaviour {
 
-	public GameObject sweFlag;
-	public GameObject bwSweFlag;
-	public GameObject engFlag;
-	public GameObject bwEngFlag;
+    public GameObject sweFlag;
+    public GameObject bwSweFlag;
+    public GameObject engFlag;
+    public GameObject bwEngFlag;
+    public GameObject footstep;
 
-	private bool lang = true; // true is swedish
-
-	// Use this for initialization
-	void OnEnable ()
-	{
-		SteamVR_TrackedController controller = GetComponent<SteamVR_TrackedController> ();
-		controller.TriggerClicked += OnClickTrigger;
-		controller.TriggerUnclicked += OnUnclickTrigger;
-		controller.PadClicked += OnPadClicked;
-	}
-
-	void OnDisable ()
-	{
-		SteamVR_TrackedController controller = GetComponent<SteamVR_TrackedController> ();
-		controller.TriggerClicked -= OnClickTrigger;
-		controller.TriggerUnclicked -= OnUnclickTrigger;
-		controller.PadClicked -= OnPadClicked;
-	}
-
-	void OnPadClicked (object sender, ClickedEventArgs e)
-	{
-		Debug.Log ("Pad Clicked! X: " + e.padX + " " + e.padY);
-		sweFlag.SetActive (!sweFlag.activeSelf);
-		bwSweFlag.SetActive (!bwSweFlag.activeSelf);
-		engFlag.SetActive (!engFlag.activeSelf);
-		bwEngFlag.SetActive (!bwEngFlag.activeSelf);
-		lang = !lang;
-
-		if (lang) {
-			Debug.Log ("Swedish!");
-		} else {
-			Debug.Log ("English!");
-		}
-	}
+    private bool lang = true; // true is swedish
 
 
-	void OnUnclickTrigger (object sender, ClickedEventArgs e)
-	{
-		Debug.Log ("Unclicked trigger!");
-	}
+    // Use this for initialization
+    void OnEnable() {
+        SteamVR_TrackedController controller = GetComponent<SteamVR_TrackedController>();
+        controller.TriggerClicked += OnClickTrigger;
+        controller.TriggerUnclicked += OnUnclickTrigger;
+        controller.PadClicked += OnPadClicked;
+    }
 
-	void OnClickTrigger (object sender, ClickedEventArgs e)
-	{
-		Debug.Log ("Clicked trigger!");
-		SceneManager.LoadScene ("test");
-	}
+    void OnDisable() {
+        SteamVR_TrackedController controller = GetComponent<SteamVR_TrackedController>();
+        controller.TriggerClicked -= OnClickTrigger;
+        controller.TriggerUnclicked -= OnUnclickTrigger;
+        controller.PadClicked -= OnPadClicked;
+    }
+
+    void OnPadClicked(object sender, ClickedEventArgs e) {
+        Debug.Log("Pad Clicked! X: " + e.padX + " " + e.padY);
+        sweFlag.SetActive(!sweFlag.activeSelf);
+        bwSweFlag.SetActive(!bwSweFlag.activeSelf);
+        engFlag.SetActive(!engFlag.activeSelf);
+        bwEngFlag.SetActive(!bwEngFlag.activeSelf);
+        lang = !lang;
+
+        if (lang) {
+            Debug.Log("Swedish!");
+        } else {
+            Debug.Log("English!");
+        }
+    }
+
+
+    void OnUnclickTrigger(object sender, ClickedEventArgs e) {
+        Debug.Log("Unclicked trigger!");
+    }
+
+    void OnClickTrigger(object sender, ClickedEventArgs e) {
+        Debug.Log("Clicked trigger!");
+        fadeMenu();
+        StartCoroutine(footsteps());
+    }
+
+    void fadeMenu() {
+        GameObject[] menu = GameObject.FindGameObjectsWithTag("menuobjects");
+
+        foreach (GameObject go in menu) {
+            iTween.FadeTo(go, 0f, 3f);
+        }
+
+    }
+
+    IEnumerator footsteps() {
+        Debug.Log("before");
+        yield return new WaitForSeconds(3);
+        Debug.Log("after");
+        footstep.SetActive(true);
+    }
 
 }
