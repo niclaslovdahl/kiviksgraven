@@ -19,6 +19,7 @@ public class langController : MonoBehaviour {
     public GameObject engFlag;
     public GameObject bwEngFlag;
     public GameObject footstep;
+    public GameObject trigger;
 
     private bool lang = true; // true is swedish
 
@@ -74,10 +75,9 @@ public class langController : MonoBehaviour {
     }
 
     IEnumerator footsteps() {
-        Debug.Log("before");
         yield return new WaitForSeconds(3);
-        Debug.Log("after");
         footstep.SetActive(true);
+        trigger.SetActive(true);
     }
 
 }

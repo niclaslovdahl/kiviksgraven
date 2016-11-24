@@ -4,9 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class sceneTrigger : MonoBehaviour {
 
-    // Use this for initialization
-    void Start() {
+    public GameObject fader;
 
+    private AsyncOperation scene;
+
+    void Start() {
+        scene = SceneManager.LoadSceneAsync("Grave", LoadSceneMode.Single);
+        scene.allowSceneActivation = false;
     }
 
     // Update is called once per frame
@@ -19,7 +23,8 @@ public class sceneTrigger : MonoBehaviour {
     }
 
     IEnumerator sceneChange() {
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Grave");
+        iTween.FadeTo(fader, 1f, 5f);
+        yield return new WaitForSeconds(5);
+        scene.allowSceneActivation = true;
     }
 }
