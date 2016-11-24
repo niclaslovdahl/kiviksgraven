@@ -4,8 +4,10 @@ using System.Collections;
 public class SceneController : MonoBehaviour {
 
 
+
 	void Start () {
 		
+
 		RenderSettings.fogDensity = 0.01F;
 
 	}

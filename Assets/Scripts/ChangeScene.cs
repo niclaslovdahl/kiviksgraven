@@ -7,12 +7,16 @@ public class ChangeScene : MonoBehaviour {
     public GameObject footsteps;
     private bool test = false;
 
+	public GameObject graveStone;
+	public Material stone2;
+	public GameObject procession;
+
     void OnTriggerEnter(Collider other) {
         StartCoroutine(Example());
   
 	}
 
-    void Update() {
+    void fixedUpdate() {
         if(test) {
             RenderSettings.fogDensity += 0.00005F;
         }
@@ -21,10 +25,20 @@ public class ChangeScene : MonoBehaviour {
     IEnumerator Example() {
         yield return new WaitForSeconds(1);
         footsteps.SetActive(false);
-        yield return new WaitForSeconds(2);
-        test = true;
 
-        yield return new WaitForSeconds(5);
+
+//        yield return new WaitForSeconds(2);
+//		graveStone.GetComponent <MeshRenderer> ().material = stone2;
+
+
+		yield return new WaitForSeconds(2);
+
+		iTween.FadeTo (procession, 1.0f, 2.0f);
+
+
+		yield return new WaitForSeconds(6);
+		test = true;
+        yield return new WaitForSeconds(8);
         test = false;
         SceneManager.LoadScene("First");
 
