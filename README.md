@@ -3,7 +3,7 @@ A Virtual Reality (VR) experience of the King's Grave near Kivik in southern Swe
 * [King's Grave (Wiki)](https://en.wikipedia.org/wiki/The_King%27s_Grave)
 
 ## Installation
-Make sure to have Unity **5.4.2f2**
+Make sure to have Unity **5.4.3f1**
 
 ## Project members
 - [Niclas Lövdahl](https://github.com/NiclasLovdahl)
