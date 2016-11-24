@@ -16,7 +16,7 @@ public class ChangeScene : MonoBehaviour {
   
 	}
 
-    void fixedUpdate() {
+    void FixedUpdate() {
         if(test) {
             RenderSettings.fogDensity += 0.00005F;
         }
