@@ -4,24 +4,34 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour {
 
-    public GameObject footsteps;
+	public GameObject footsteps;
     public GameObject fader;
     private bool test = false;
-    private bool faderBool = true;
+//  private bool faderBool = true;
+	public static bool changeSound = false;
 
     public GameObject graveStone;
     public Material stone2;
     public GameObject procession;
     private AsyncOperation scene;
 
+	//public GameObject sceneController;
+
     void Start() {
         scene = SceneManager.LoadSceneAsync("First", LoadSceneMode.Single);
         scene.allowSceneActivation = false;
         iTween.FadeTo(fader, 0f, 5f);
+	
     }
+		
 
     void OnTriggerEnter(Collider other) {
-        StartCoroutine(Example());
+		
+		//Change sound file in SceneManager
+		GameObject.Find ("SceneManager").GetComponent<GraveSceneController> ().PlaySource2 ();
+
+		StartCoroutine(Example());
+
 
     }
 
@@ -32,7 +42,8 @@ public class ChangeScene : MonoBehaviour {
     }
 
     IEnumerator Example() {
-        yield return new WaitForSeconds(1);
+		
+		yield return new WaitForSeconds(1);
         footsteps.SetActive(false);
 
 
