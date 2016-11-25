@@ -8,12 +8,12 @@ public class SceneController : MonoBehaviour {
 	void Start () {
 		
 
-		RenderSettings.fogDensity = 0.01F;
+		RenderSettings.fogDensity = 0.05F;
 
 	}
 	
 
-	void Update () {
+	void FixedUpdate () {
 		
 		FogFadeOut ();
 	}
@@ -22,7 +22,7 @@ public class SceneController : MonoBehaviour {
 	void FogFadeOut() {
 		if (RenderSettings.fogDensity > 0.001F) {
 
-			RenderSettings.fogDensity -= 0.00005F;
+			RenderSettings.fogDensity -= 0.0002F;
 		}
 
 	}

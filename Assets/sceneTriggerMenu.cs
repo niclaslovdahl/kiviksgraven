@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class sceneTrigger : MonoBehaviour {
+public class sceneTriggerMenu : MonoBehaviour {
 
     public GameObject fader;
 
@@ -11,11 +11,6 @@ public class sceneTrigger : MonoBehaviour {
     void Start() {
         scene = SceneManager.LoadSceneAsync("Grave", LoadSceneMode.Single);
         scene.allowSceneActivation = false;
-    }
-
-    // Update is called once per frame
-    void Update() {
-        RenderSettings.fogDensity += 0.00005F;
     }
 
     void OnTriggerEnter(Collider other) {

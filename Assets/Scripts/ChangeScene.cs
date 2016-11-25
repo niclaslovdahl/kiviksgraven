@@ -10,6 +10,12 @@ public class ChangeScene : MonoBehaviour {
 	public GameObject graveStone;
 	public Material stone2;
 	public GameObject procession;
+    private AsyncOperation scene;
+
+    void Start() {
+        scene = SceneManager.LoadSceneAsync("First", LoadSceneMode.Single);
+        scene.allowSceneActivation = false;
+    }
 
     void OnTriggerEnter(Collider other) {
         StartCoroutine(Example());
@@ -40,7 +46,7 @@ public class ChangeScene : MonoBehaviour {
 		test = true;
         yield return new WaitForSeconds(8);
         test = false;
-        SceneManager.LoadScene("First");
+        scene.allowSceneActivation = true;
 
     }
 
