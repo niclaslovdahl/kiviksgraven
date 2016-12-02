@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().isKinematic = true;
         hmd = GameObject.Find("Camera (eye)");
+
     }
 
     // Update is called once per frame
