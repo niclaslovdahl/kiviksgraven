@@ -7,7 +7,7 @@ public class flyHigh : MonoBehaviour
     // Variables for speed and hight
     private float minHeight = -0.01000381f;
     private float maxHeight = 25f;
-    private float boxSpeed = 0.05f;
+    private float boxSpeed = 0.03f;
 
     private MeshRenderer mesh;
     private Transform trans;
