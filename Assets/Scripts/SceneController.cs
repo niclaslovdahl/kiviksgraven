@@ -12,11 +12,14 @@ public class SceneController : MonoBehaviour {
 	public GameObject procession;
 
     void Start() {
-		//scene = SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
-		//scene.allowSceneActivation = false;
+
 		iTween.FadeTo (procession, 0.0f, 0.0f);
 		StartCoroutine(Example());
-		
+
+
+		scene = SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
+		scene.allowSceneActivation = false;
+
     }
 
     void FixedUpdate() {
@@ -43,8 +46,8 @@ public class SceneController : MonoBehaviour {
 		yield return new WaitForSeconds(4);
 		iTween.FadeTo (procession, 0.0f, 2.0f);
 
-		yield return new WaitForSeconds(4);
-		//scene.allowSceneActivation = true;
+		yield return new WaitForSeconds(6);
+		scene.allowSceneActivation = true;
 	
 
 	}
