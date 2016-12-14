@@ -6,6 +6,7 @@ public class GraveSceneController : MonoBehaviour {
 	public AudioClip sound2;
 	//public GameObject trigger;
 	public GameObject procession;
+	private bool fadeOut = false;
 
 
 
@@ -16,9 +17,11 @@ public class GraveSceneController : MonoBehaviour {
 
 
 	}
+
+
 		
 
-	void PlaySource1() {
+	public void PlaySource1() {
 
 		AudioSource audio = GetComponent<AudioSource> ();
 		audio.Play ();
@@ -33,9 +36,12 @@ public class GraveSceneController : MonoBehaviour {
 
 		audio.clip = sound2;
 		audio.Play ();
+		audio.loop = false;
 
 
 	}
+
+
 
 
 }

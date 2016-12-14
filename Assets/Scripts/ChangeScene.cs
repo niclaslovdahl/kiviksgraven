@@ -56,11 +56,13 @@ public class ChangeScene : MonoBehaviour {
         iTween.FadeTo(procession, 1.0f, 2.0f);
 
 
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(10);
         test = true;
         yield return new WaitForSeconds(2);
         iTween.FadeTo(fader, 1f, 5f);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
+		GameObject.Find ("WindSound").GetComponent<FadeSound> ().FadeOut ();
+		yield return new WaitForSeconds(2);
         test = false;
         scene.allowSceneActivation = true;
 
