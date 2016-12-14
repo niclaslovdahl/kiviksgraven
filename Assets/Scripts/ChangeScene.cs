@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour {
 
 	public GameObject footsteps;
+    public GameObject trigger;
     public GameObject fader;
     private bool test = false;
 //  private bool faderBool = true;
@@ -29,6 +30,9 @@ public class ChangeScene : MonoBehaviour {
 		
 		//Change sound file in SceneManager
 		GameObject.Find ("SceneManager").GetComponent<GraveSceneController> ().PlaySource2 ();
+
+        GetComponent<BoxCollider>().enabled = false;
+
 
 		StartCoroutine(Example());
 
