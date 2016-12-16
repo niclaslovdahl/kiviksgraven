@@ -9,6 +9,7 @@ public class SceneController : MonoBehaviour
     public AudioClip sound2;
     public GameObject procession;
     public GameObject fader;
+    public GameObject controller;
 
     private bool changeLight = false;
     private AsyncOperation scene;
@@ -53,7 +54,7 @@ public class SceneController : MonoBehaviour
         changeLight = true;
 
         yield return new WaitForSeconds(2);
-        iTween.FadeTo(procession, 0.0f, 2.0f);
+        iTween.FadeTo(procession, 0.0f, 5.0f);
         yield return new WaitForSeconds(2);
 
         iTween.FadeTo(fader, 1f, 2f);
@@ -65,11 +66,12 @@ public class SceneController : MonoBehaviour
 
     IEnumerator flyIn()
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(17);
         iTween.FadeTo(fader, 1f, 2f);
         yield return new WaitForSeconds(2);
         moveBox = false;
         VRbox.transform.position = new Vector3(965.36f, 0f, 781.06f);
+        controller.GetComponent<flyHigh>().enabled = true;
         iTween.FadeTo(fader, 0f, 2f);
     }
 }

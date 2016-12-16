@@ -14,13 +14,13 @@ public class ChangeScene : MonoBehaviour {
     public GameObject graveStone;
     public Material stone2;
     public GameObject procession;
-    private AsyncOperation scene;
+    //private AsyncOperation scene;
 
 	//public GameObject sceneController;
 
     void Start() {
-        scene = SceneManager.LoadSceneAsync("First", LoadSceneMode.Single);
-        scene.allowSceneActivation = false;
+        //scene = SceneManager.LoadSceneAsync("First", LoadSceneMode.Single);
+        //scene.allowSceneActivation = false;
         iTween.FadeTo(fader, 0f, 5f);
 	
     }
@@ -41,7 +41,7 @@ public class ChangeScene : MonoBehaviour {
 
     void FixedUpdate() {
         if (test) {
-            RenderSettings.fogDensity += 0.00005F;
+            RenderSettings.fogDensity += 0.00002F;
         }
     }
 
@@ -68,7 +68,8 @@ public class ChangeScene : MonoBehaviour {
 		GameObject.Find ("WindSound").GetComponent<FadeSound> ().FadeOut ();
 		yield return new WaitForSeconds(2);
         test = false;
-        scene.allowSceneActivation = true;
+        //scene.allowSceneActivation = true;
+        GameObject.Find("SceneManager").GetComponent<GraveSceneController>().ChangeScene();
 
     }
 
