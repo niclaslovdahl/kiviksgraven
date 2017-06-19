@@ -9,3 +9,6 @@ Make sure to have Unity **5.4.3f1**
 - [Niclas Lövdahl](https://github.com/NiclasLovdahl)
 - [Johan Månsson](https://github.com/johanmansson)
 - [Joel Pålsson](https://github.com/joelpalsson)
+
+## Gameplay video
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/nworJsVqfwY/0.jpg)](https://www.youtube.com/watch?v=nworJsVqfwY)
